@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Gage</h1>
+
+<p>Welcome back!</p>
+
+
+<script type="text/javascript">
+    var clicks = 0;
+    function onClick() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+    };
+</script>
+    <button type="button" onClick="onClick()">Got out of seat</button>
+    <p>times: <a id="clicks">0</a></p>
+
+    
+
+<script type="text/javascript">
+    var clicks2 = 0;
+    function onClick2() {
+        clicks2 += 1;
+        document.getElementById("clicks2").innerHTML = clicks2;
+    };
+</script>
+    <button type="button" onClick="onClick2()">Lost focus of class flow</button>
+    <p>times: <a id="clicks2">0</a></p>
+
+
+
+<script type="text/javascript">
+    var clicks3 = 0;
+    function onClick3() {
+        clicks3 += 1;
+        document.getElementById("clicks3").innerHTML = clicks3;
+    };
+</script>
+    <button type="button" onClick="onClick3()">Spoke out of turn</button>
+    <p>times: <a id="clicks3">0</a></p>
+
+
+
+
+
+<script type="text/javascript">
+    var clicks4 = 0;
+    function onClick4() {
+        clicks4 += 1;
+        document.getElementById("clicks4").innerHTML = clicks4;
+    };
+</script>
+    <button type="button" onClick="onClick4()">Ate class goldfish</button>
+    <p>times: <a id="clicks4">0</a></p>
+
+
+
+
+var myCanvas = document.getElementById("myCanvas");
+myCanvas.width = 300;
+myCanvas.height = 300;
+   
+var ctx = myCanvas.getContext("2d");
+ 
+function drawLine(ctx, startX, startY, endX, endY,color){
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(startX,startY);
+    ctx.lineTo(endX,endY);
+    ctx.stroke();
+    ctx.restore();
+}
+ 
+function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height,color){
+    ctx.save();
+    ctx.fillStyle=color;
+    ctx.fillRect(upperLeftCornerX,upperLeftCornerY,width,height);
+    ctx.restore();
+}
+ 
+var myBarchart = new Barchart(
+    {
+        canvas:myCanvas,
+        seriesName:"Vinyl records",
+        padding:20,
+        gridScale:5,
+        gridColor:"#eeeeee",
+        data:myVinyls,
+        colors:["#a55ca5","#67b6c7", "#bccd7a","#eb9743"]
+    }
+);
+myBarchart.draw();
+
+</body>
+
+</html> 
